@@ -1,1 +1,74 @@
-.github/
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.log
+
+# Go
+/vendor/
+/go.sum
+/go.mod
+/.cache
+*.swp
+*.swo
+*~
+
+# Node / Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+build/
+dist/
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backend binary
+/backend/backend
+/backend/main
+
+# Parser binaries
+/parsers/elements/elements-parser
+/parsers/surfaces/surfaces-parser
+
+# Docker volumes (we don't store volumes in repo)
+/data/
+/opt/
+
+# Environment files
+.env
+*.env
+
+# Coverage
+*.cover
+coverage.out
+coverage.html
+
+# Terraform (if any)
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Helm (if used later)
+*.tgz
+charts/
