@@ -1,0 +1,158 @@
+version: '3.8'
+
+networks:
+  toolkit-network:
+    external: true
+    name: toolkit-network
+
+volumes:
+  # Эти volumes будут использовать локальные каталоги на node2
+  mariadb_data:
+    driver_opts:
+      type: none
+      device: /opt/mariadb
+      o: bind
+  minio_data:
+    driver_opts:
+      type: none
+      device: /opt/minio
+      o: bind
+  redis_data:
+    driver_opts:
+      type: none
+      device: /opt/redis
+      o: bind
+  game_data:
+    driver_opts:
+      type: none
+      device: /opt/game_data
+      o: bind
+
+services:
+  # ==================== СЕРВИСЫ ДАННЫХ (node2) ====================
+
+  mariadb:
+    image: mariadb:10.11
+    container_name: toolkit_mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - toolkit-network
+    ports:
+      - "3306:3306"   # только для внутреннего доступа (можно убрать)
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.hostname == node2
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 1G
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart_policy:
+      condition: on-failure
+
+  minio:
+    image: minio/minio:latest
+    container_name: toolkit_minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - minio_data:/data
+    networks:
+      - toolkit-network
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.hostname == node2
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    restart_policy:
+      condition: on-failure
+
+  redis:
+    image: redis:7-alpine
+    container_name: toolkit_redis
+    command: redis-server --requirepass ${REDIS_PASSWORD} --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    networks:
+      - toolkit-network
+    ports:
+      - "6379:6379"
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.hostname == node2
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "redis-cli", "--pass", "${REDIS_PASSWORD}", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart_policy:
+      condition: on-failure
+
+  # ==================== REVERSE-PROXY (node1) ====================
+
+  nginx:
+    image: nginx:alpine
+    container_name: toolkit_nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - toolkit-network
+    ports:
+      - "80:80"
+      - "443:443"   # если будет HTTPS в будущем
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.hostname == node1
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 128M
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart_policy:
+      condition: on-failure
