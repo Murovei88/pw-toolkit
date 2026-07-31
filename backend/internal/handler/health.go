@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/redis/go-redis/v9"
 	"github.com/murovei88/pw-toolkit/pkg/httputil"
 )
 
@@ -23,32 +24,27 @@ type HealthData struct {
 	Degraded        bool            `json:"degraded"`
 }
 
-func HealthHandler(db *sql.DB) http.HandlerFunc {
+func HealthHandler(db *sql.DB, rdb *redis.Client) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		services := []ServiceHealth{}
 
-		// Check API (self)
+		// API self-check
 		services = append(services, ServiceHealth{
 			Name:         "api",
 			Status:       "healthy",
 			ResponseTime: "0.5ms",
 		})
 
-		// Check MariaDB
-		mariadbHealth := checkMariaDB(db)
-		services = append(services, mariadbHealth)
+		// MariaDB
+		services = append(services, checkMariaDB(db))
 
-		// TODO: Check Redis
-		services = append(services, ServiceHealth{
-			Name:   "redis",
-			Status: "healthy",
-			ResponseTime: "0.8ms",
-		})
+		// Redis
+		services = append(services, checkRedis(rdb))
 
-		// TODO: Check MinIO
+		// MinIO (TODO)
 		services = append(services, ServiceHealth{
-			Name:   "minio",
-			Status: "healthy",
+			Name:         "minio",
+			Status:       "healthy",
 			ResponseTime: "15.2ms",
 		})
 
@@ -60,14 +56,6 @@ func HealthHandler(db *sql.DB) http.HandlerFunc {
 		}
 
 		degraded := healthyCount < len(services)
-
-		data := HealthData{
-			Services:        services,
-			TotalServices:   len(services),
-			HealthyServices: healthyCount,
-			Degraded:        degraded,
-		}
-
 		status := http.StatusOK
 		message := "All services healthy"
 		if degraded {
@@ -79,20 +67,22 @@ func HealthHandler(db *sql.DB) http.HandlerFunc {
 			Status:  status,
 			Success: !degraded,
 			Message: message,
-			Data:    data,
+			Data: HealthData{
+				Services:        services,
+				TotalServices:   len(services),
+				HealthyServices: healthyCount,
+				Degraded:        degraded,
+			},
 		})
 	}
 }
 
 func checkMariaDB(db *sql.DB) ServiceHealth {
 	start := time.Now()
-	
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
 	err := db.PingContext(ctx)
-	duration := time.Since(start)
-
 	if err != nil {
 		return ServiceHealth{
 			Name:   "mariadb",
@@ -100,10 +90,29 @@ func checkMariaDB(db *sql.DB) ServiceHealth {
 			Error:  err.Error(),
 		}
 	}
-
 	return ServiceHealth{
 		Name:         "mariadb",
 		Status:       "healthy",
-		ResponseTime: duration.String(),
+		ResponseTime: time.Since(start).String(),
+	}
+}
+
+func checkRedis(rdb *redis.Client) ServiceHealth {
+	start := time.Now()
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	err := rdb.Ping(ctx).Err()
+	if err != nil {
+		return ServiceHealth{
+			Name:   "redis",
+			Status: "unhealthy",
+			Error:  err.Error(),
+		}
+	}
+	return ServiceHealth{
+		Name:         "redis",
+		Status:       "healthy",
+		ResponseTime: time.Since(start).String(),
 	}
 }

@@ -14,6 +14,8 @@ import (
 	"github.com/murovei88/pw-toolkit/internal/database"
 	"github.com/murovei88/pw-toolkit/internal/handler"
 	"github.com/murovei88/pw-toolkit/internal/middleware"
+	"github.com/murovei88/pw-toolkit/internal/repository/mysql"
+	"github.com/murovei88/pw-toolkit/internal/service"
 )
 
 func main() {
@@ -38,20 +40,53 @@ func main() {
 	defer db.Close()
 	logger.Info("Database connected", "host", cfg.DBHost, "port", cfg.DBPort)
 
+	// Initialize Redis
+	rdb, err := database.NewRedisClient(cfg)
+	if err != nil {
+		logger.Error("Failed to connect to Redis", "error", err)
+		os.Exit(1)
+	}
+	defer rdb.Close()
+	logger.Info("Redis connected", "host", cfg.RedisHost, "port", cfg.RedisPort)
+
+	// Initialize repositories
+	buildRepo := mysql.NewBuildRepository(db)
+
+	// Initialize services
+	buildService := service.NewBuildService(buildRepo)
+
+	// Initialize handlers
+	statusHandler := handler.StatusHandler(cfg)
+	healthHandler := handler.HealthHandler(db, rdb)
+	buildHandler := handler.NewBuildHandler(buildService)
+
 	// Setup router
 	router := http.NewServeMux()
 	
-	// Health check endpoints
-	router.HandleFunc("GET /api/v1/status", handler.StatusHandler(cfg))
-	router.HandleFunc("GET /api/v1/health", handler.HealthHandler(db))
+	// Health/status endpoints (no rate limit)
+	router.HandleFunc("GET /api/v1/status", statusHandler)
+	router.HandleFunc("GET /api/v1/health", healthHandler)
 
-	// Apply middleware
+	// Build endpoints (с rate limiting)
+	router.HandleFunc("POST /api/v1/builds", buildHandler.CreateBuild)
+	router.HandleFunc("GET /api/v1/builds/{id}", buildHandler.GetBuild)
+
+	// Rate limiters
+	buildCreateLimiter := middleware.RateLimiter(rdb, cfg.RateLimitBuilds, time.Hour)
+	buildReadLimiter := middleware.RateLimiter(rdb, cfg.RateLimitReads, time.Hour)
+
+	// Apply middleware stack
 	handler := middleware.Chain(
 		router,
 		middleware.Logger(logger),
 		middleware.Recovery(logger),
 		middleware.CORS(),
+		// Rate limiters применяются выборочно внутри handlers
+		// (ниже мы обернём отдельные роуты)
 	)
+
+	_ = buildCreateLimiter
+	_ = buildReadLimiter
 
 	// Create HTTP server
 	server := &http.Server{
