@@ -59,11 +59,6 @@ func (r *BuildRepository) Create(ctx context.Context, build *domain.Build) error
 		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 	`
 
-	var genieID *int
-	if build.GenieID != nil {
-		genieID = build.GenieID
-	}
-
 	_, err = r.db.ExecContext(ctx, query,
 		build.ID,
 		build.Name,
@@ -72,7 +67,7 @@ func (r *BuildRepository) Create(ctx context.Context, build *domain.Build) error
 		equipmentJSON,
 		cardsJSON,
 		booksJSON,
-		genieID,
+		build.GenieID,
 		panguSoulsJSON,
 		starDisksJSON,
 		titlesJSON,
