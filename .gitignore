@@ -72,3 +72,7 @@ coverage.html
 # Helm (if used later)
 *.tgz
 charts/
+
+# Игнорируем локальные .env файлы в папках deploy
+deploy/*/.env
+deploy/*/.env.local
