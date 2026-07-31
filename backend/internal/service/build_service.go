@@ -30,8 +30,8 @@ func (s *BuildService) CreateBuild(ctx context.Context, build *domain.Build) err
 	}
 
 	// Генерация публичного ID (10 символов, ~59 bits entropy)
-	// Вероятность коллизии при 1 млрд билдов: ~10^-6
-	id, err := gonanoid.Generate(10)
+	// gonanoid.New(size) — использует стандартный URL-safe алфавит
+	id, err := gonanoid.New(10)
 	if err != nil {
 		return fmt.Errorf("generate nanoid: %w", err)
 	}
@@ -67,7 +67,6 @@ func (s *BuildService) GetBuild(ctx context.Context, id string) (*domain.Build, 
 
 	// Увеличиваем счётчик просмотров (асинхронно, чтобы не замедлять ответ)
 	go func() {
-		// Используем новый контекст, так как исходный может быть отменён
 		ctx := context.Background()
 		_ = s.repo.IncrementViewCount(ctx, id)
 	}()

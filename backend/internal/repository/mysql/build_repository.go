@@ -195,3 +195,111 @@ func (r *BuildRepository) Delete(ctx context.Context, id string) error {
 	}
 	return nil
 }
+
+// Update обновляет существующий билд
+func (r *BuildRepository) Update(ctx context.Context, build *domain.Build) error {
+	equipmentJSON, err := json.Marshal(build.Equipment)
+	if err != nil {
+		return fmt.Errorf("marshal equipment: %w", err)
+	}
+
+	cardsJSON, _ := json.Marshal(build.Cards)
+	booksJSON, _ := json.Marshal(build.Books)
+	panguSoulsJSON, _ := json.Marshal(build.PanguSouls)
+	starDisksJSON, _ := json.Marshal(build.StarDisks)
+	titlesJSON, _ := json.Marshal(build.Titles)
+	calculatedStatsJSON, _ := json.Marshal(build.CalculatedStats)
+
+	query := `
+		UPDATE builds SET
+			name = ?, class_id = ?, level = ?, equipment = ?,
+			cards = ?, books = ?, genie_id = ?,
+			pangu_souls = ?, star_disks = ?, titles = ?,
+			calculated_stats = ?
+		WHERE id = ?
+	`
+
+	result, err := r.db.ExecContext(ctx, query,
+		build.Name, build.ClassID, build.Level, equipmentJSON,
+		cardsJSON, booksJSON, build.GenieID,
+		panguSoulsJSON, starDisksJSON, titlesJSON,
+		calculatedStatsJSON,
+		build.ID,
+	)
+	if err != nil {
+		return fmt.Errorf("update build: %w", err)
+	}
+
+	rows, _ := result.RowsAffected()
+	if rows == 0 {
+		return fmt.Errorf("build not found")
+	}
+	return nil
+}
+
+// List возвращает список билдов с пагинацией
+func (r *BuildRepository) List(ctx context.Context, limit, offset int) ([]*domain.Build, error) {
+	query := `
+		SELECT 
+			id, internal_id, name, class_id, level, equipment, cards, books,
+			genie_id, pangu_souls, star_disks, titles, calculated_stats,
+			view_count, last_viewed_at, created_at, updated_at
+		FROM builds
+		ORDER BY created_at DESC
+		LIMIT ? OFFSET ?
+	`
+
+	rows, err := r.db.QueryContext(ctx, query, limit, offset)
+	if err != nil {
+		return nil, fmt.Errorf("query builds: %w", err)
+	}
+	defer rows.Close()
+
+	var builds []*domain.Build
+	for rows.Next() {
+		var b buildRow
+		err := rows.Scan(
+			&b.ID, &b.InternalID, &b.Name, &b.ClassID, &b.Level,
+			&b.Equipment, &b.Cards, &b.Books, &b.GenieID,
+			&b.PanguSouls, &b.StarDisks, &b.Titles, &b.CalculatedStats,
+			&b.ViewCount, &b.LastViewedAt, &b.CreatedAt, &b.UpdatedAt,
+		)
+		if err != nil {
+			return nil, fmt.Errorf("scan build row: %w", err)
+		}
+
+		// Упрощённая десериализация (для списка достаточно основных полей)
+		var equipment domain.Equipment
+		json.Unmarshal(b.Equipment, &equipment)
+
+		var name string
+		if b.Name.Valid {
+			name = b.Name.String
+		}
+
+		var genieID *int
+		if b.GenieID.Valid {
+			v := int(b.GenieID.Int64)
+			genieID = &v
+		}
+
+		builds = append(builds, &domain.Build{
+			ID:         b.ID,
+			InternalID: b.InternalID,
+			Name:       name,
+			ClassID:    b.ClassID,
+			Level:      b.Level,
+			Equipment:  equipment,
+			ViewCount:  b.ViewCount,
+			CreatedAt:  b.CreatedAt,
+			UpdatedAt:  b.UpdatedAt,
+			GenieID:    genieID,
+		})
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, fmt.Errorf("iterate rows: %w", err)
+	}
+
+	return builds, nil
+}

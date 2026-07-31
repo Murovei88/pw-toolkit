@@ -8,6 +8,7 @@ type BuildRepository interface {
 	Update(ctx context.Context, build *Build) error
 	Delete(ctx context.Context, id string) error
 	List(ctx context.Context, limit, offset int) ([]*Build, error)
+	IncrementViewCount(ctx context.Context, id string) error
 }
 
 type ItemRepository interface {
@@ -28,8 +29,8 @@ type GemRepository interface {
 }
 
 type ItemFilter struct {
-	Type    string
-	Subtype string
+	Type     string
+	Subtype  string
 	MinLevel int
 	MaxLevel int
 }
