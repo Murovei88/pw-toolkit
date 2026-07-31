@@ -11,15 +11,14 @@ import (
 	"time"
 
 	"github.com/murovei88/pw-toolkit/internal/config"
+	"github.com/murovei88/pw-toolkit/internal/database"
 	"github.com/murovei88/pw-toolkit/internal/handler"
 	"github.com/murovei88/pw-toolkit/internal/middleware"
 )
 
 func main() {
-	// Load configuration
 	cfg := config.Load()
 
-	// Setup structured logger
 	logger := slog.New(slog.NewJSONHandler(os.Stderr, &slog.HandlerOptions{
 		Level: slog.LevelInfo,
 	}))
@@ -30,12 +29,21 @@ func main() {
 		"port", cfg.Port,
 	)
 
-	// Setup router and handlers
+	// Initialize database
+	db, err := database.NewMySQLConnection(cfg)
+	if err != nil {
+		logger.Error("Failed to connect to database", "error", err)
+		os.Exit(1)
+	}
+	defer db.Close()
+	logger.Info("Database connected", "host", cfg.DBHost, "port", cfg.DBPort)
+
+	// Setup router
 	router := http.NewServeMux()
 	
 	// Health check endpoints
 	router.HandleFunc("GET /api/v1/status", handler.StatusHandler(cfg))
-	router.HandleFunc("GET /api/v1/health", handler.HealthHandler())
+	router.HandleFunc("GET /api/v1/health", handler.HealthHandler(db))
 
 	// Apply middleware
 	handler := middleware.Chain(
