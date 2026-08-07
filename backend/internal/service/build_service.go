@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	gonanoid "github.com/matoous/go-nanoid/v2"
+	"github.com/murovei88/pw-toolkit/internal/calc"
 	"github.com/murovei88/pw-toolkit/internal/domain"
 )
 
@@ -15,43 +16,53 @@ var (
 )
 
 type BuildService struct {
-	repo domain.BuildRepository
+	repo       domain.BuildRepository
+	calc       *calc.StatCalculator
+	classRepo  domain.ClassRepository
+	itemRepo   domain.ItemRepository
+	gemRepo    domain.GemRepository
 }
 
-func NewBuildService(repo domain.BuildRepository) *BuildService {
-	return &BuildService{repo: repo}
+func NewBuildService(
+	repo domain.BuildRepository,
+	classRepo domain.ClassRepository,
+	itemRepo domain.ItemRepository,
+	gemRepo domain.GemRepository,
+) *BuildService {
+	return &BuildService{
+		repo:      repo,
+		calc:      calc.NewStatCalculator(),
+		classRepo: classRepo,
+		itemRepo:  itemRepo,
+		gemRepo:   gemRepo,
+	}
 }
 
-// CreateBuild создаёт новый билд с уникальным публичным ID
 func (s *BuildService) CreateBuild(ctx context.Context, build *domain.Build) error {
-	// Валидация базовых полей
 	if err := s.validateBuild(build); err != nil {
 		return fmt.Errorf("%w: %v", ErrInvalidBuild, err)
 	}
 
-	// Генерация публичного ID (10 символов, ~59 bits entropy)
-	// gonanoid.New(size) — использует стандартный URL-safe алфавит
 	id, err := gonanoid.New(10)
 	if err != nil {
 		return fmt.Errorf("generate nanoid: %w", err)
 	}
 	build.ID = id
 
-	// Инициализация пустых значений
 	if build.Equipment == nil {
 		build.Equipment = make(domain.Equipment)
 	}
-	if build.CalculatedStats == nil {
-		build.CalculatedStats = make(domain.Stats)
-	}
 
-	// TODO: в Фазе 2.4 подключим CalculationService
-	// build.CalculatedStats = s.calcService.Calculate(build)
+	// Calculate stats before saving
+	stats, err := s.calculateStats(ctx, build)
+	if err != nil {
+		return fmt.Errorf("calculate stats: %w", err)
+	}
+	build.CalculatedStats = stats
 
 	return s.repo.Create(ctx, build)
 }
 
-// GetBuild возвращает билд по ID и увеличивает счётчик просмотров
 func (s *BuildService) GetBuild(ctx context.Context, id string) (*domain.Build, error) {
 	if len(id) != 10 {
 		return nil, ErrBuildNotFound
@@ -65,13 +76,76 @@ func (s *BuildService) GetBuild(ctx context.Context, id string) (*domain.Build, 
 		return nil, ErrBuildNotFound
 	}
 
-	// Увеличиваем счётчик просмотров (асинхронно, чтобы не замедлять ответ)
 	go func() {
 		ctx := context.Background()
 		_ = s.repo.IncrementViewCount(ctx, id)
 	}()
 
 	return build, nil
+}
+
+// CalculatePreview вычисляет статы без сохранения (для live-preview)
+func (s *BuildService) CalculatePreview(ctx context.Context, req *calc.PreviewRequest) (domain.Stats, error) {
+	build := &domain.Build{
+		ClassID:    req.ClassID,
+		Level:      req.Level,
+		Equipment:  req.Equipment,
+		Cards:      req.Cards,
+		Books:      req.Books,
+		GenieID:    req.GenieID,
+		PanguSouls: req.PanguSouls,
+		StarDisks:  req.StarDisks,
+		Titles:     req.Titles,
+	}
+
+	return s.calculateStats(ctx, build)
+}
+
+func (s *BuildService) calculateStats(ctx context.Context, build *domain.Build) (domain.Stats, error) {
+	// Загружаем классы
+	classes, err := s.classRepo.List(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("load classes: %w", err)
+	}
+
+	// Загружаем предметы из экипировки
+	itemIDs := s.extractItemIDs(build.Equipment)
+	items, err := s.itemRepo.FindByIDs(ctx, itemIDs)
+	if err != nil {
+		return nil, fmt.Errorf("load items: %w", err)
+	}
+
+	// Загружаем камни
+	gemIDs := s.extractGemIDs(build.Equipment)
+	gems, err := s.gemRepo.FindByIDs(ctx, gemIDs)
+	if err != nil {
+		return nil, fmt.Errorf("load gems: %w", err)
+	}
+
+	// Вычисляем статы
+	stats := s.calc.Calculate(build, classes, items, gems)
+
+	return stats, nil
+}
+
+func (s *BuildService) extractItemIDs(equipment domain.Equipment) []int {
+	ids := make([]int, 0)
+	for _, equipped := range equipment {
+		ids = append(ids, equipped.ItemID)
+	}
+	return ids
+}
+
+func (s *BuildService) extractGemIDs(equipment domain.Equipment) []int {
+	ids := make([]int, 0)
+	for _, equipped := range equipment {
+		for _, gemID := range equipped.Gems {
+			if gemID > 0 {
+				ids = append(ids, gemID)
+			}
+		}
+	}
+	return ids
 }
 
 func (s *BuildService) validateBuild(b *domain.Build) error {

@@ -51,42 +51,40 @@ func main() {
 
 	// Initialize repositories
 	buildRepo := mysql.NewBuildRepository(db)
+	classRepo := mysql.NewClassRepository(db)
+	itemRepo := mysql.NewItemRepository(db)
+	gemRepo := mysql.NewGemRepository(db)
 
 	// Initialize services
-	buildService := service.NewBuildService(buildRepo)
+	buildService := service.NewBuildService(buildRepo, classRepo, itemRepo, gemRepo)
 
 	// Initialize handlers
 	statusHandler := handler.StatusHandler(cfg)
 	healthHandler := handler.HealthHandler(db, rdb)
-	buildHandler := handler.NewBuildHandler(buildService)
+	buildHandler := handler.NewBuildHandler(buildService, logger)
+	calcHandler := handler.NewCalculationHandler(buildService, logger)
 
 	// Setup router
 	router := http.NewServeMux()
 	
-	// Health/status endpoints (no rate limit)
+	// Health/status endpoints
 	router.HandleFunc("GET /api/v1/status", statusHandler)
 	router.HandleFunc("GET /api/v1/health", healthHandler)
 
-	// Build endpoints (с rate limiting)
+	// Build endpoints
 	router.HandleFunc("POST /api/v1/builds", buildHandler.CreateBuild)
 	router.HandleFunc("GET /api/v1/builds/{id}", buildHandler.GetBuild)
 
-	// Rate limiters
-	buildCreateLimiter := middleware.RateLimiter(rdb, cfg.RateLimitBuilds, time.Hour)
-	buildReadLimiter := middleware.RateLimiter(rdb, cfg.RateLimitReads, time.Hour)
+	// Calculation endpoint
+	router.HandleFunc("POST /api/v1/calculate", calcHandler.CalculatePreview)
 
-	// Apply middleware stack
+	// Apply middleware
 	handler := middleware.Chain(
 		router,
 		middleware.Logger(logger),
 		middleware.Recovery(logger),
 		middleware.CORS(),
-		// Rate limiters применяются выборочно внутри handlers
-		// (ниже мы обернём отдельные роуты)
 	)
-
-	_ = buildCreateLimiter
-	_ = buildReadLimiter
 
 	// Create HTTP server
 	server := &http.Server{
