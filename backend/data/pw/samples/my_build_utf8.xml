@@ -1,0 +1,341 @@
+<AllSimulatorInfos VERSION="2">
+	<CharacterSimulator Type="0" RealmLevel="100">
+		<LevelInfo Level01="105" Level02="105" Level03="105"/>
+		<BaseProperty BasePros01="5" BasePros02="5" BasePros03="542" BasePros04="140"/>
+	</CharacterSimulator>
+	<EquipmentSimulator Type="1">
+		<EquipDetail00 EquipID="50148" EquipLevel="11" EquipHoles="2" EquipPos="0" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="2" StonePos00="0" StoneID00="38155" StonePos01="1" StoneID01="25154"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="2275" IsLocal="0" FirstParam="1168" SecondParam="1"/>
+				<ExtraDetail01 ExtraPropType="3227" IsLocal="0" FirstParam="3305" SecondParam="60"/>
+				<ExtraDetail02 ExtraPropType="3231" IsLocal="0" FirstParam="80" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="2915" IsLocal="0" FirstParam="5" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="3232" IsLocal="0" FirstParam="30" SecondParam="0"/>
+				<ExtraDetail05 ExtraPropType="999" IsLocal="0" FirstParam="185" SecondParam="0"/>
+				<ExtraDetail06 ExtraPropType="3236" IsLocal="0" FirstParam="100" SecondParam="0"/>
+				<ExtraDetail07 ExtraPropType="1403" IsLocal="0" FirstParam="100" SecondParam="0"/>
+				<ExtraDetail08 ExtraPropType="1730" IsLocal="0" FirstParam="1044" SecondParam="11"/>
+			</ExtraInfo>
+			<EngraveInfo>
+				<EngraveDetail00 ExtraPropType="3002" IsLocal="0" FirstParam="225"/>
+				<EngraveDetail01 ExtraPropType="2999" IsLocal="0" FirstParam="225"/>
+				<EngraveDetail02 ExtraPropType="2990" IsLocal="0" FirstParam="150"/>
+			</EngraveInfo>
+		</EquipDetail00>
+		<EquipDetail01 EquipID="59921" EquipLevel="12" EquipHoles="4" EquipPos="1" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="4" StonePos00="0" StoneID00="38155" StonePos01="1" StoneID01="38155" StonePos02="2" StoneID02="38155" StonePos03="3" StoneID03="38155"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="1790" IsLocal="0" FirstParam="2700" SecondParam="12"/>
+				<ExtraDetail01 ExtraPropType="3553" IsLocal="1" FirstParam="450" SecondParam="450"/>
+				<ExtraDetail02 ExtraPropType="3550" IsLocal="1" FirstParam="250" SecondParam="250"/>
+				<ExtraDetail03 ExtraPropType="3556" IsLocal="1" FirstParam="8" SecondParam="8"/>
+				<ExtraDetail04 ExtraPropType="3557" IsLocal="1" FirstParam="8" SecondParam="8"/>
+				<ExtraDetail05 ExtraPropType="3530" IsLocal="0" FirstParam="2" SecondParam="1928217360"/>
+			</ExtraInfo>
+			<EngraveInfo>
+				<EngraveDetail00 ExtraPropType="2995" IsLocal="0" FirstParam="80" SecondParam="16172220"/>
+				<EngraveDetail01 ExtraPropType="3002" IsLocal="0" FirstParam="225" SecondParam="16172220"/>
+			</EngraveInfo>
+			<SuitInfo SuitCount="4" SuitExtraID00="3575" SuitExtraID01="3580" SuitExtraID02="3578" SuitExtraID03="3579"/>
+		</EquipDetail01>
+		<EquipDetail02 EquipID="65883" EquipLevel="10" EquipHoles="2" EquipPos="2" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="2" StonePos00="0" StoneID00="68156" StonePos01="1" StoneID01="68156"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="387" IsLocal="0" FirstParam="5" SecondParam="-1082130432"/>
+				<ExtraDetail01 ExtraPropType="3698" IsLocal="0" FirstParam="284"/>
+				<ExtraDetail02 ExtraPropType="3686" IsLocal="0" FirstParam="176" SecondParam="72025138"/>
+				<ExtraDetail03 ExtraPropType="3694" IsLocal="0" FirstParam="7" SecondParam="71042102"/>
+				<ExtraDetail04 ExtraPropType="3696" IsLocal="0" FirstParam="7" SecondParam="70779965"/>
+				<ExtraDetail05 ExtraPropType="3697" IsLocal="0" FirstParam="31" SecondParam="71238731"/>
+				<ExtraDetail06 ExtraPropType="1868" IsLocal="0" FirstParam="892" SecondParam="10"/>
+			</ExtraInfo>
+			<EngraveInfo>
+				<EngraveDetail00 ExtraPropType="3815" IsLocal="0" FirstParam="3" SecondParam="70779965"/>
+			</EngraveInfo>
+			<SuitInfo SuitCount="1" SuitExtraID00="3700"/>
+		</EquipDetail02>
+		<EquipDetail03 EquipID="38257" EquipLevel="9" EquipHoles="4" EquipPos="3" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="4" StonePos00="0" StoneID00="25154" StonePos01="1" StoneID01="25154" StonePos02="2" StoneID02="25154" StonePos03="3" StoneID03="25154"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="220" IsLocal="0" FirstParam="500" SecondParam="0"/>
+				<ExtraDetail01 ExtraPropType="2112" IsLocal="0" FirstParam="400" SecondParam="0"/>
+				<ExtraDetail02 ExtraPropType="637" IsLocal="0" FirstParam="1045220557" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="314" IsLocal="0" FirstParam="4" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="2040" IsLocal="0" FirstParam="2" SecondParam="0"/>
+				<ExtraDetail05 ExtraPropType="1469" IsLocal="0" FirstParam="10" SecondParam="0"/>
+				<ExtraDetail06 ExtraPropType="1807" IsLocal="0" FirstParam="767" SecondParam="9"/>
+			</ExtraInfo>
+			<EngraveInfo>
+				<EngraveDetail00 ExtraPropType="3000" IsLocal="0" FirstParam="330"/>
+				<EngraveDetail01 ExtraPropType="3000" IsLocal="0" FirstParam="330"/>
+				<EngraveDetail02 ExtraPropType="2705" IsLocal="0" FirstParam="2"/>
+			</EngraveInfo>
+			<SuitInfo SuitCount="1" SuitExtraID00="2981"/>
+		</EquipDetail03>
+		<EquipDetail04 EquipID="59928" EquipLevel="11" EquipHoles="4" EquipPos="4" QiLingSKillID="5296" QiLingSkillLevel="1">
+			<StoneInfo StoneCount="4" StonePos00="0" StoneID00="38155" StonePos01="1" StoneID01="38155" StonePos02="2" StoneID02="38155" StonePos03="3" StoneID03="38155"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="1790" IsLocal="0" FirstParam="2088" SecondParam="11"/>
+				<ExtraDetail01 ExtraPropType="3486" IsLocal="0" FirstParam="326" SecondParam="0"/>
+				<ExtraDetail02 ExtraPropType="3485" IsLocal="0" FirstParam="232" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="3479" IsLocal="0" FirstParam="445" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="3481" IsLocal="0" FirstParam="55" SecondParam="0"/>
+				<ExtraDetail05 ExtraPropType="3490" IsLocal="0" FirstParam="10" SecondParam="0"/>
+				<ExtraDetail06 ExtraPropType="3590" IsLocal="1" FirstParam="5296" SecondParam="1"/>
+				<ExtraDetail07 ExtraPropType="3558" IsLocal="0" FirstParam="2" SecondParam="0"/>
+				<ExtraDetail08 ExtraPropType="3411" IsLocal="0" FirstParam="10" SecondParam="0"/>
+			</ExtraInfo>
+			<SuitInfo SuitCount="4" SuitExtraID00="3575" SuitExtraID01="3580" SuitExtraID02="3578" SuitExtraID03="3579"/>
+		</EquipDetail04>
+		<EquipDetail05 EquipID="36488" EquipLevel="10" EquipHoles="2" EquipPos="5" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="2" StonePos00="0" StoneID00="68156" StonePos01="1" StoneID01="68156"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="3689" IsLocal="0" FirstParam="18" SecondParam="1104896452"/>
+				<ExtraDetail01 ExtraPropType="3698" IsLocal="0" FirstParam="252" SecondParam="-816008243"/>
+				<ExtraDetail02 ExtraPropType="358" IsLocal="0" FirstParam="3" SecondParam="-866129231"/>
+				<ExtraDetail03 ExtraPropType="3694" IsLocal="0" FirstParam="7" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="3696" IsLocal="0" FirstParam="8" SecondParam="0"/>
+				<ExtraDetail05 ExtraPropType="3697" IsLocal="0" FirstParam="28" SecondParam="0"/>
+				<ExtraDetail06 ExtraPropType="2311" IsLocal="0" FirstParam="1" SecondParam="0"/>
+				<ExtraDetail07 ExtraPropType="1868" IsLocal="0" FirstParam="892" SecondParam="10"/>
+			</ExtraInfo>
+			<EngraveInfo>
+				<EngraveDetail00 ExtraPropType="2708" IsLocal="0" FirstParam="1"/>
+				<EngraveDetail01 ExtraPropType="2708" IsLocal="0" FirstParam="1" SecondParam="48"/>
+			</EngraveInfo>
+			<SuitInfo SuitCount="1" SuitExtraID00="3700"/>
+		</EquipDetail05>
+		<EquipDetail06 EquipID="59937" EquipLevel="10" EquipHoles="4" EquipPos="6" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="4" StonePos00="0" StoneID00="25154" StonePos01="1" StoneID01="25154" StonePos02="2" StoneID02="25154" StonePos03="3" StoneID03="25154"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="1788" IsLocal="0" FirstParam="1427" SecondParam="10"/>
+				<ExtraDetail01 ExtraPropType="3450" IsLocal="0" FirstParam="8" SecondParam="0"/>
+				<ExtraDetail02 ExtraPropType="3446" IsLocal="0" FirstParam="5" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="3443" IsLocal="0" FirstParam="122" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="3449" IsLocal="0" FirstParam="3" SecondParam="0"/>
+				<ExtraDetail05 ExtraPropType="3451" IsLocal="0" FirstParam="44" SecondParam="0"/>
+			</ExtraInfo>
+			<SuitInfo SuitCount="3" SuitExtraID00="3559" SuitExtraID01="3564" SuitExtraID02="3562"/>
+		</EquipDetail06>
+		<EquipDetail07 EquipID="35765" EquipLevel="10" EquipHoles="4" EquipPos="7" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="4" StonePos00="0" StoneID00="25154" StonePos01="1" StoneID01="25154" StonePos02="2" StoneID02="25154" StonePos03="3" StoneID03="25154"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="2129" IsLocal="0" FirstParam="300" SecondParam="-1082130432"/>
+				<ExtraDetail01 ExtraPropType="2920" IsLocal="0" FirstParam="15"/>
+				<ExtraDetail02 ExtraPropType="638" IsLocal="0" FirstParam="1050253722" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="2921" IsLocal="0" FirstParam="5" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="1789" IsLocal="0" FirstParam="1516" SecondParam="10"/>
+				<ExtraDetail05 ExtraPropType="3135" IsLocal="0" FirstParam="1073741824" SecondParam="1787352747"/>
+			</ExtraInfo>
+			<SuitInfo SuitCount="5" SuitExtraID00="2969" SuitExtraID01="2970" SuitExtraID02="2971" SuitExtraID03="2972" SuitExtraID04="2973"/>
+		</EquipDetail07>
+		<EquipDetail08 EquipID="35768" EquipLevel="10" EquipHoles="4" EquipPos="8" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="4" StonePos00="0" StoneID00="25154" StonePos01="1" StoneID01="25154" StonePos02="2" StoneID02="25154" StonePos03="3" StoneID03="25154"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="2129" IsLocal="0" FirstParam="300" SecondParam="1104896452"/>
+				<ExtraDetail01 ExtraPropType="2917" IsLocal="0" FirstParam="15" SecondParam="1"/>
+				<ExtraDetail02 ExtraPropType="2027" IsLocal="0" FirstParam="3" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="2917" IsLocal="0" FirstParam="15" SecondParam="1"/>
+				<ExtraDetail04 ExtraPropType="1789" IsLocal="0" FirstParam="1516" SecondParam="10"/>
+			</ExtraInfo>
+			<SuitInfo SuitCount="5" SuitExtraID00="2969" SuitExtraID01="2970" SuitExtraID02="2971" SuitExtraID03="2972" SuitExtraID04="2973"/>
+		</EquipDetail08>
+		<EquipDetail09 EquipID="54967" EquipLevel="10" EquipHoles="1" EquipPos="9" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="1" StonePos00="0" StoneID00="0"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="3317" IsLocal="0" FirstParam="3" SecondParam="1104896452"/>
+				<ExtraDetail01 ExtraPropType="3320" IsLocal="0" FirstParam="48" SecondParam="0"/>
+				<ExtraDetail02 ExtraPropType="3325" IsLocal="0" FirstParam="6" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="3330" IsLocal="0" FirstParam="10" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="3334" IsLocal="0" FirstParam="2" SecondParam="1550138112"/>
+				<ExtraDetail05 ExtraPropType="3347" IsLocal="0" FirstParam="669" SecondParam="10"/>
+			</ExtraInfo>
+			<EngraveInfo>
+				<EngraveDetail00 ExtraPropType="2702" IsLocal="0" FirstParam="1"/>
+				<EngraveDetail01 ExtraPropType="2995" IsLocal="0" FirstParam="80"/>
+			</EngraveInfo>
+		</EquipDetail09>
+		<EquipDetail10 EquipID="28607" EquipLevel="0" EquipHoles="0" EquipPos="10" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="0"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="358" IsLocal="0" FirstParam="3" SecondParam="2144095136"/>
+				<ExtraDetail01 ExtraPropType="391" IsLocal="0" FirstParam="50" SecondParam="0"/>
+				<ExtraDetail02 ExtraPropType="595" IsLocal="0" FirstParam="6" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="2056" IsLocal="0" FirstParam="5" SecondParam="0"/>
+			</ExtraInfo>
+		</EquipDetail10>
+		<EquipDetail11 EquipID="17643" EquipLevel="6" EquipHoles="0" EquipPos="18" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="0"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="1942" IsLocal="0" FirstParam="45" SecondParam="45"/>
+				<ExtraDetail01 ExtraPropType="3424" IsLocal="0" FirstParam="50" SecondParam="0"/>
+				<ExtraDetail02 ExtraPropType="3426" IsLocal="0" FirstParam="50" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="3425" IsLocal="0" FirstParam="80" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="3427" IsLocal="0" FirstParam="80" SecondParam="0"/>
+			</ExtraInfo>
+		</EquipDetail11>
+		<EquipDetail12 EquipID="74826" EquipLevel="0" EquipHoles="4" EquipPos="22" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="4" StonePos00="0" StoneID00="0" StonePos01="1" StoneID01="0" StonePos02="2" StoneID02="0" StonePos03="3" StoneID03="0"/>
+			<ExtraInfo>
+				<ExtraDetail00 ExtraPropType="2046" IsLocal="0" FirstParam="8" SecondParam="6684720"/>
+				<ExtraDetail01 ExtraPropType="2046" IsLocal="0" FirstParam="8" SecondParam="0"/>
+				<ExtraDetail02 ExtraPropType="3196" IsLocal="0" FirstParam="100" SecondParam="0"/>
+				<ExtraDetail03 ExtraPropType="3197" IsLocal="0" FirstParam="300" SecondParam="0"/>
+				<ExtraDetail04 ExtraPropType="3198" IsLocal="0" FirstParam="300" SecondParam="0"/>
+			</ExtraInfo>
+		</EquipDetail12>
+		<EquipDetail13 EquipID="64110" EquipLevel="0" EquipHoles="0" EquipPos="26" QiLingSKillID="0" QiLingSkillLevel="0">
+			<StoneInfo StoneCount="0"/>
+		</EquipDetail13>
+		<VirtualStorage storageEquip00="0" storageEquip01="51141" storageEquip02="0" storageEquip03="0" storageEquip04="43659" storageEquip05="0" storageEquip06="43669" storageEquip07="43679" storageEquip08="43689" storageEquip09="0" storageEquip10="0" storageEquip11="0"/>
+	</EquipmentSimulator>
+	<GeneralCardSimulator Type="2" SoulInfo00,="8" SoulInfo01,="8" SoulInfo02,="8" SoulInfo03,="8" SoulInfo04,="8" SoulInfo05,="8">
+		<CardInfo00 CardID="41784" CardLevel="80" CardRebirthTimes="2"/>
+		<CardInfo01 CardID="41785" CardLevel="80" CardRebirthTimes="1"/>
+		<CardInfo02 CardID="41786" CardLevel="80" CardRebirthTimes="1"/>
+		<CardInfo03 CardID="41787" CardLevel="80" CardRebirthTimes="1"/>
+		<CardInfo04 CardID="41832" CardLevel="80" CardRebirthTimes="2"/>
+		<CardInfo05 CardID="41831" CardLevel="80" CardRebirthTimes="1"/>
+	</GeneralCardSimulator>
+	<AstrolabeSimulator Type="3" TotalPoints="2000" Level="61" IsEquiped="1" Size="8" VipLevel="5">
+		<ActivityProperty00 Value="3160"/>
+		<ActivityProperty01 Key="1" Value="3170"/>
+		<ActivityProperty02 Key="3" Value="3180"/>
+		<ActivityProperty03 Key="4" Value="3160"/>
+		<ActivityProperty04 Key="5" Value="3173"/>
+		<ActivityProperty05 Key="6" Value="3193"/>
+		<ActivityProperty06 Key="7" Value="3163"/>
+		<ActivityProperty07 Key="9" Value="3170"/>
+		<PointInfo PointValue00="463" PointValue01="289" PointValue02="484" PointValue03="413" PointValue04="351"/>
+	</AstrolabeSimulator>
+	<MeridianSimulator Type="4" MeridianLevel="80"/>
+	<TitleSimulator Type="5" IsMaxTitle="0" TitleCount="510" TitleID00="1403" TitleID01="1404" TitleID02="6005" TitleID03="6833" TitleID04="6006" TitleID05="6782" TitleID06="6007" TitleID07="1405" TitleID08="1406" TitleID09="6008" TitleID10="7570" TitleID11="8220" TitleID12="8221" TitleID13="1407" TitleID14="6009" TitleID15="8084" TitleID16="7836" TitleID17="1360" TitleID18="1361" TitleID19="1362" TitleID20="1363" TitleID21="1364" TitleID22="1365" TitleID23="1366" TitleID24="1369" TitleID25="7837" TitleID26="7906" TitleID27="1303" TitleID28="1304" TitleID29="1305" TitleID30="1306" TitleID31="1307" TitleID32="1308" TitleID33="1309" TitleID34="7869" TitleID35="8496" TitleID36="1301" TitleID37="1302" TitleID38="1411" TitleID39="1887" TitleID40="1888" TitleID41="1889" TitleID42="1890" TitleID43="1891" TitleID44="1892" TitleID45="1893" TitleID46="8487" TitleID47="6840" TitleID48="7657" TitleID49="7658" TitleID50="6010" TitleID51="1310" TitleID52="1311" TitleID53="1312" TitleID54="1313" TitleID55="1314" TitleID56="1315" TitleID57="1316" TitleID58="1317" TitleID59="1412" TitleID60="1318" TitleID61="1320" TitleID62="1321" TitleID63="1322" TitleID64="1323" TitleID65="1324" TitleID66="1325" TitleID67="1326" TitleID68="1327" TitleID69="1328" TitleID70="1329" TitleID71="1330" TitleID72="1331" TitleID73="1332" TitleID74="1333" TitleID75="1408" TitleID76="1335" TitleID77="1336" TitleID78="1337" TitleID79="1338" TitleID80="1339" TitleID81="1340" TitleID82="1341" TitleID83="6784" TitleID84="6783" TitleID85="6515" TitleID86="7839" TitleID87="1342" TitleID88="1343" TitleID89="1344" TitleID90="1345" TitleID91="1346" TitleID92="1347" TitleID93="1413" TitleID94="1348" TitleID95="1415" TitleID96="6011" TitleID97="6023" TitleID98="2384" TitleID99="6012" TitleID100="2510" TitleID101="7163" TitleID102="5734" TitleID103="5735" TitleID104="7838" TitleID105="7840" TitleID106="1350" TitleID107="1351" TitleID108="1352" TitleID109="1353" TitleID110="1354" TitleID111="1414" TitleID112="1355" TitleID113="1356" TitleID114="1357" TitleID115="1358" TitleID116="1417" TitleID117="1359" TitleID118="1416" TitleID119="7640" TitleID120="7638" TitleID121="7636" TitleID122="7641" TitleID123="7650" TitleID124="6841" TitleID125="7816" TitleID126="8239" TitleID127="8245" TitleID128="8244" TitleID129="8237" TitleID130="8394" TitleID131="6842" TitleID132="8448" TitleID133="6014" TitleID134="6013" TitleID135="2589" TitleID136="1370" TitleID137="1371" TitleID138="1372" TitleID139="1373" TitleID140="1374" TitleID141="1375" TitleID142="1376" TitleID143="1377" TitleID144="1378" TitleID145="1379" TitleID146="1380" TitleID147="2547" TitleID148="2546" TitleID149="6015" TitleID150="1646" TitleID151="1647" TitleID152="1648" TitleID153="1649" TitleID154="1650" TitleID155="1651" TitleID156="1652" TitleID157="1653" TitleID158="1654" TitleID159="1655" TitleID160="1656" TitleID161="1657" TitleID162="1658" TitleID163="1659" TitleID164="1660" TitleID165="1661" TitleID166="1662" TitleID167="1663" TitleID168="1664" TitleID169="1665" TitleID170="1666" TitleID171="6021" TitleID172="2548" TitleID173="1667" TitleID174="1668" TitleID175="1669" TitleID176="1670" TitleID177="1671" TitleID178="1672" TitleID179="6016" TitleID180="6017" TitleID181="6018" TitleID182="1673" TitleID183="1674" TitleID184="1675" TitleID185="1676" TitleID186="1677" TitleID187="1678" TitleID188="1679" TitleID189="1680" TitleID190="1681" TitleID191="1682" TitleID192="1683" TitleID193="1684" TitleID194="6785" TitleID195="6812" TitleID196="6813" TitleID197="6834" TitleID198="6835" TitleID199="1409" TitleID200="6019" TitleID201="6020" TitleID202="6022" TitleID203="6024" TitleID204="6025" TitleID205="6026" TitleID206="6027" TitleID207="6028" TitleID208="1695" TitleID209="1696" TitleID210="1697" TitleID211="1698" TitleID212="1699" TitleID213="1700" TitleID214="1701" TitleID215="1702" TitleID216="1703" TitleID217="6029" TitleID218="6030" TitleID219="6524" TitleID220="6525" TitleID221="1704" TitleID222="1705" TitleID223="1706" TitleID224="1707" TitleID225="1708" TitleID226="1709" TitleID227="1710" TitleID228="1711" TitleID229="6961" TitleID230="1713" TitleID231="1714" TitleID232="1715" TitleID233="1716" TitleID234="1717" TitleID235="1718" TitleID236="1719" TitleID237="1720" TitleID238="1721" TitleID239="1722" TitleID240="1723" TitleID241="1724" TitleID242="1725" TitleID243="1726" TitleID244="1727" TitleID245="1728" TitleID246="1729" TitleID247="1730" TitleID248="1731" TitleID249="1899" TitleID250="1900" TitleID251="1901" TitleID252="1902" TitleID253="1903" TitleID254="1904" TitleID255="1905" TitleID256="1906" TitleID257="1907" TitleID258="7697" TitleID259="2046" TitleID260="2047" TitleID261="2048" TitleID262="2049" TitleID263="2050" TitleID264="2051" TitleID265="2052" TitleID266="5720" TitleID267="5716" TitleID268="5717" TitleID269="5718" TitleID270="5719" TitleID271="5721" TitleID272="6962" TitleID273="6538" TitleID274="6533" TitleID275="6534" TitleID276="6535" TitleID277="6536" TitleID278="6537" TitleID279="7707" TitleID280="6963" TitleID281="5722" TitleID282="5727" TitleID283="5726" TitleID284="5725" TitleID285="5724" TitleID286="5723" TitleID287="6814" TitleID288="2053" TitleID289="2054" TitleID290="2055" TitleID291="2056" TitleID292="2057" TitleID293="2058" TitleID294="2059" TitleID295="2060" TitleID296="6964" TitleID297="7696" TitleID298="8109" TitleID299="6504" TitleID300="1732" TitleID301="1733" TitleID302="1734" TitleID303="2063" TitleID304="2064" TitleID305="2065" TitleID306="2066" TitleID307="2067" TitleID308="2068" TitleID309="2069" TitleID310="2070" TitleID311="6965" TitleID312="6966" TitleID313="2125" TitleID314="2126" TitleID315="2127" TitleID316="2128" TitleID317="2129" TitleID318="2130" TitleID319="2131" TitleID320="9285" TitleID321="2286" TitleID322="2287" TitleID323="2288" TitleID324="2289" TitleID325="2290" TitleID326="2291" TitleID327="2292" TitleID328="6786" TitleID329="2294" TitleID330="2295" TitleID331="2296" TitleID332="2297" TitleID333="2298" TitleID334="2299" TitleID335="2300" TitleID336="1401" TitleID337="2301" TitleID338="2302" TitleID339="2303" TitleID340="2304" TitleID341="2305" TitleID342="2306" TitleID343="2307" TitleID344="2308" TitleID345="2603" TitleID346="2604" TitleID347="2605" TitleID348="2606" TitleID349="2607" TitleID350="2608" TitleID351="2609" TitleID352="2610" TitleID353="2611" TitleID354="2612" TitleID355="2613" TitleID356="2614" TitleID357="2615" TitleID358="2616" TitleID359="2617" TitleID360="2618" TitleID361="2619" TitleID362="2620" TitleID363="2621" TitleID364="2622" TitleID365="2623" TitleID366="2624" TitleID367="2625" TitleID368="2626" TitleID369="2627" TitleID370="2628" TitleID371="2629" TitleID372="6836" TitleID373="2638" TitleID374="2639" TitleID375="2640" TitleID376="2641" TitleID377="2642" TitleID378="2643" TitleID379="2644" TitleID380="2645" TitleID381="2661" TitleID382="2630" TitleID383="2631" TitleID384="2632" TitleID385="2633" TitleID386="2634" TitleID387="2635" TitleID388="2636" TitleID389="2637" TitleID390="6084" TitleID391="6085" TitleID392="6086" TitleID393="6087" TitleID394="6088" TitleID395="6089" TitleID396="6090" TitleID397="6091" TitleID398="6134" TitleID399="6135" TitleID400="6136" TitleID401="6137" TitleID402="6138" TitleID403="6139" TitleID404="6140" TitleID405="6141" TitleID406="6529" TitleID407="6530" TitleID408="6531" TitleID409="6532" TitleID410="1367" TitleID411="1368" TitleID412="1402" TitleID413="1885" TitleID414="1886" TitleID415="8222" TitleID416="7967" TitleID417="6787" TitleID418="8223" TitleID419="7969" TitleID420="9145" TitleID421="8637" TitleID422="8638" TitleID423="7841" TitleID424="2338" TitleID425="2339" TitleID426="2340" TitleID427="2341" TitleID428="2342" TitleID429="4944" TitleID430="8224" TitleID431="7842" TitleID432="1410" TitleID433="4855" TitleID434="4856" TitleID435="4857" TitleID436="4867" TitleID437="4871" TitleID438="4872" TitleID439="4873" TitleID440="9550" TitleID441="6837" TitleID442="9660" TitleID443="9661" TitleID444="6788" TitleID445="4993" TitleID446="4994" TitleID447="4995" TitleID448="4996" TitleID449="4997" TitleID450="4998" TitleID451="4999" TitleID452="5000" TitleID453="5001" TitleID454="5002" TitleID455="1420" TitleID456="4849" TitleID457="4850" TitleID458="4851" TitleID459="6838" TitleID460="6815" TitleID461="4852" TitleID462="4853" TitleID463="4854" TitleID464="6839" TitleID465="4858" TitleID466="4859" TitleID467="4860" TitleID468="1633" TitleID469="4950" TitleID470="4951" TitleID471="4952" TitleID472="4953" TitleID473="4954" TitleID474="4955" TitleID475="5078" TitleID476="4964" TitleID477="4864" TitleID478="4865" TitleID479="4866" TitleID480="4861" TitleID481="4862" TitleID482="5088" TitleID483="4863" TitleID484="5079" TitleID485="6843" TitleID486="7701" TitleID487="7728" TitleID488="4956" TitleID489="4957" TitleID490="4958" TitleID491="4962" TitleID492="4963" TitleID493="4959" TitleID494="4960" TitleID495="4961" TitleID496="1634" TitleID497="6505" TitleID498="4868" TitleID499="4869" TitleID500="4870" TitleID501="5080" TitleID502="2148" TitleID503="8225" TitleID504="6816" TitleID505="1391" TitleID506="8047" TitleID507="6789" TitleID508="2151" TitleID509="10271"/>
+	<RuneSimulator Type="6" RuneID00="52203" RuneID01="69812" RuneID02="52202" RuneID03="69805" RuneID04="52203" RuneID05="52184" RuneID06="52223" RuneID07="52224" RuneID08="69809" RuneID09="69153" RuneID10="52223" RuneID11="69150"/>
+	<SkillSimulator Type="7" SkillType="1">
+		<SkillLevelInfo Level00="3" Level01="10" Level02="10" Level03="10" Level04="10" Level05="5" Level06="10" Level07="0" Level08="0" Level09="11" Level10="0" Level11="0"/>
+	</SkillSimulator>
+	<CampTokenSimulator Type="8" ItemID="64110" Level="100" ActNodes="19,31,36,27,49,51,55,35,46,21,21,33,33,29,52,61,37,24,42,13,30,26,39,37,37,50,55,39,28,7,25,23,45,32,59,32,51,54,41,5,23,34,43,28,44,43,53,39,23,40,21,31,25,45,42,45,58,38,51,15,29,34,28,37,48,34,51,36,27,17,28,29,34,37,34,47,28,31,36,3,29,31,25,41,61,59,40,23,23,9,26,24,40,24,45,43,39,46,48,17" CurNodes="19,31,36,27,49,51,55,35,46,21,21,33,33,29,52,61,37,24,42,1,30,26,39,37,37,50,55,39,28,7,25,23,45,32,59,32,51,54,41,5,23,34,43,28,44,43,53,39,23,40,21,31,25,45,42,45,58,38,51,15,29,34,28,37,48,34,51,36,27,17,28,29,34,37,34,47,28,31,36,3,29,31,25,41,61,59,40,23,23,9,26,24,40,24,45,43,39,46,48,17"/>
+	<ServantSimulator Type="9">
+		<LevelRewards>
+			<RewardInfo0 Profession="0" IsLocal="true">
+				<Reward0 Index="0"/>
+				<Reward1 Index="1" IsActive="true"/>
+				<Reward2 Index="2" IsActive="true"/>
+				<Reward3 Index="3" IsActive="true"/>
+				<Reward4 Index="4"/>
+				<Reward5 Index="5"/>
+				<Reward6 Index="6"/>
+				<Reward7 Index="7"/>
+				<Reward8 Index="8"/>
+			</RewardInfo0>
+			<RewardInfo1 Profession="1" IsLocal="true">
+				<Reward0 Index="0"/>
+				<Reward1 Index="1" IsActive="true"/>
+				<Reward2 Index="2" IsActive="true"/>
+				<Reward3 Index="3" IsActive="true"/>
+				<Reward4 Index="4" IsActive="true"/>
+				<Reward5 Index="5"/>
+				<Reward6 Index="6"/>
+				<Reward7 Index="7"/>
+				<Reward8 Index="8"/>
+			</RewardInfo1>
+			<RewardInfo2 Profession="2" IsLocal="true">
+				<Reward0 Index="0"/>
+				<Reward1 Index="1" IsActive="true"/>
+				<Reward2 Index="2" IsActive="true"/>
+				<Reward3 Index="3"/>
+				<Reward4 Index="4"/>
+				<Reward5 Index="5"/>
+				<Reward6 Index="6"/>
+				<Reward7 Index="7"/>
+				<Reward8 Index="8"/>
+			</RewardInfo2>
+			<RewardInfo3 Profession="3" IsLocal="true">
+				<Reward0 Index="0"/>
+				<Reward1 Index="1" IsActive="true"/>
+				<Reward2 Index="2" IsActive="true"/>
+				<Reward3 Index="3" IsActive="true"/>
+				<Reward4 Index="4" IsActive="true"/>
+				<Reward5 Index="5" IsActive="true"/>
+				<Reward6 Index="6"/>
+				<Reward7 Index="7"/>
+				<Reward8 Index="8"/>
+			</RewardInfo3>
+			<RewardInfo4 Profession="4" IsLocal="true">
+				<Reward0 Index="0"/>
+				<Reward1 Index="1" IsActive="true"/>
+				<Reward2 Index="2" IsActive="true"/>
+				<Reward3 Index="3" IsActive="true"/>
+				<Reward4 Index="4" IsActive="true"/>
+				<Reward5 Index="5"/>
+				<Reward6 Index="6"/>
+				<Reward7 Index="7"/>
+				<Reward8 Index="8"/>
+			</RewardInfo4>
+			<RewardInfo5 Profession="5" IsLocal="true">
+				<Reward0 Index="0"/>
+				<Reward1 Index="1" IsActive="true"/>
+				<Reward2 Index="2" IsActive="true"/>
+				<Reward3 Index="3" IsActive="true"/>
+				<Reward4 Index="4" IsActive="true"/>
+				<Reward5 Index="5"/>
+				<Reward6 Index="6"/>
+				<Reward7 Index="7"/>
+				<Reward8 Index="8"/>
+			</RewardInfo5>
+		</LevelRewards>
+	</ServantSimulator>
+	<PanguSimulator Type="10">
+		<YearInfo0 Level="83">
+			<EquipInfo0 ItemId="1010126" Level="0" LocalLevel="0" GrowPoints="0">
+				<MainProp Addon="3955" Value="160"/>
+			</EquipInfo0>
+			<EquipInfo1 ItemId="1010012" Level="13" LocalLevel="13" GrowPoints="0">
+				<MainProp Addon="3868" Value="2046"/>
+				<SubProp0 Addon="3938" Value="4" Points="1"/>
+				<SubProp1 Addon="3925" Value="6" Points="1"/>
+				<SubProp2 Addon="3873" Value="4" Points="1"/>
+				<SubProp3 Addon="3861" Value="2" Points="1"/>
+			</EquipInfo1>
+			<EquipInfo2 ItemId="1010138" Level="0" LocalLevel="0" GrowPoints="0">
+				<MainProp Addon="3955" Value="160"/>
+				<SubProp0 Addon="3918" Value="4" Points="1"/>
+			</EquipInfo2>
+			<EquipInfo3 ItemId="1010024" Level="20" LocalLevel="20" GrowPoints="0">
+				<MainProp Addon="3872" Value="440"/>
+				<SubProp0 Addon="3863" Value="6" Points="1"/>
+				<SubProp1 Addon="3877" Value="4" Points="1"/>
+				<SubProp2 Addon="3948" Value="4" Points="1"/>
+				<SubProp3 Addon="3871" Value="4" Points="1"/>
+			</EquipInfo3>
+			<EquipInfo4 ItemId="0"/>
+		</YearInfo0>
+		<YearInfo1 Level="56">
+			<EquipInfo0 ItemId="0"/>
+			<EquipInfo1 ItemId="1010282" Level="0" LocalLevel="0" GrowPoints="0">
+				<MainProp Addon="3955" Value="160"/>
+			</EquipInfo1>
+			<EquipInfo2 ItemId="1010288" Level="0" LocalLevel="0" GrowPoints="0">
+				<MainProp Addon="3955" Value="160"/>
+				<SubProp0 Addon="3916" Value="4" Points="1"/>
+			</EquipInfo2>
+			<EquipInfo3 ItemId="1010294" Level="4" LocalLevel="4" GrowPoints="0">
+				<MainProp Addon="3954" Value="48"/>
+				<SubProp0 Addon="3924" Value="4" Points="1"/>
+			</EquipInfo3>
+			<EquipInfo4 ItemId="1010300" Level="0" LocalLevel="0" GrowPoints="0">
+				<MainProp Addon="3944" Value="20"/>
+			</EquipInfo4>
+		</YearInfo1>
+		<YearInfo2 Level="13">
+			<EquipInfo0 ItemId="0"/>
+			<EquipInfo1 ItemId="0"/>
+			<EquipInfo2 ItemId="0"/>
+			<EquipInfo3 ItemId="1010444" Level="3" LocalLevel="3" GrowPoints="0">
+				<MainProp Addon="3954" Value="42"/>
+			</EquipInfo3>
+			<EquipInfo4 ItemId="0"/>
+		</YearInfo2>
+	</PanguSimulator>
+</AllSimulatorInfos>
